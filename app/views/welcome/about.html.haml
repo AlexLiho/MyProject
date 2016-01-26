@@ -1,0 +1,43 @@
+=render 'main_menu_about'
+    
+.contactsSpace
+  %div
+    .leftSpace
+      %h2 О компании
+      #content__contact__contact__1__about.adminTextEl
+        %p
+          %b Бэст Клин
+          начал свою деятельность еще в 2014 году. Небольшая&nbsp;группа&nbsp;клинеров, специализирующихся, в основном на&nbsp;уборке квартир в одной из крупных Российских компаний решила организовать собственное предприятие, на базе которого и образовался теперешний Bjic.
+        %p Особый акцент в своей деятельности мы стараемся делать на качество предоставляемых услуг и на сотрудничество на постоянной основе, что дает нашим клиентам непременную уверенность в совместном сотрудничестве. Большинство&nbsp;по достоинству ценят наше внимание, скорость, профессионализм и желание предоставить действительно качественный сервис для любых, даже самых требовательных клиентов.
+        %p
+          С уважением,
+          = succeed "." do
+            %b Коллектив Bjic
+    .rightSpace
+      %h2 Наш адрес
+      #content__contact__contact__1__central.adminTextEl
+        %p Москва, Ул. Миклухо-Маклая 36, к1
+        %h3
+          %strong
+            \&quot;Бэст Клин&quot; или просто
+            %span{:style => "color:#FF8C00;"} Bjic
+        %p
+          Телефон:
+          %strong +7 (800) 500-71-42
+        %p
+          E-mail:
+          %a info@bjic.ru
+        %p
+          %strong Работа в компании: +7 (499) 322-39-34
+.partnersSpace
+  %ul
+    %li
+      %img{:src => "uploads/nfc/partner1.png"}/
+    %li
+      %img{:src => "uploads/nfc/partner2.png"}/
+    %li
+      %img{:src => "uploads/nfc/partner3.png"}/
+    %li
+      %img{:src => "uploads/nfc/partner4.png"}/
+    %li
+      %img{:src => "uploads/nfc/partner5.png"}/

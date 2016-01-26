@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @product.name
+%p
+  %b Additional:
+  = @product.additional
+%p
+  %b Price:
+  = @product.price
+%p
+  %b Unit:
+  = @product.unit
+%p
+  %b Lead time:
+  = @product.lead_time
+%p
+  %b Description:
+  = @product.description
+%p
+  %b Visible order:
+  = @product.visible_order
+%p
+  %b Deleted at:
+  = @product.deleted_at
+
+= link_to 'Edit', edit_product_path(@product)
+\|
+= link_to 'Back', products_path

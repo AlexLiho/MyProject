@@ -1,0 +1,141 @@
+=render 'main_menu_calculate'
+
+= form_tag confirmation_path, method: 'post' do
+
+  .calculateSpace.unregistered
+    %div
+      .top
+
+      .content
+        .leftSpace
+          %h1 Калькулятор
+          .row
+            = label_tag 'flattype' do
+              Количество комнат:
+              =link_to nil, class: 'info' do
+                %div
+                  %span
+                  1 - комн от 0 - 50 м2, 2 комн. от 0 - 70 м2, 3 комн. от 0 - 100 м2, 4 комн. от 0 - 150 м2
+            .selector
+              = collection_select 'order', 'product_id', @general_products, :id, :name
+              
+          .row
+            = label_tag 'order[variant]' do 
+              Тип уборки
+              =link_to nil, class: 'info' do
+                %div
+                  %span
+                  Выберите тип уборки
+              %span
+                %a{:href => "#what"} Что входит в уборку?
+            .selector
+              = select_tag 'order[variant]', options_for_select([['Быстрая', 'standart'], ['Генеральная', 'general'], ['После ремонта', 'remont']])
+          %p Дополнительные услуги
+          = render partial: 'additional', collection: @additional_products
+          .row.withHint
+            = label_tag 'order[eco]' do 
+              Эко-уборка
+              =link_to nil, class: 'info' do
+                %div
+                  %span
+                  Уборка квартиры с использованием экологически безопасных средств
+              %span +40% к стоимости уборки обычными средствами
+            .checkbox
+              = check_box_tag 'order[eco]', false
+          .row.withHint
+            = label_tag 'order[get_key]' do 
+              Заехать за ключами от квартиры
+              =link_to nil, class: 'info' do
+                %div
+                  %span>
+                  Мы заедем за ключами в удобное для Вас время и место.
+              %span 300 руб.
+            .checkbox
+              = check_box_tag 'order[get_key]', false
+
+        .rightSpace
+          .totalSpace
+            %h4 Уборка квартиры с 1 жилой комнатой и одной ванной
+            .additional
+              %span Дополнительно
+              %p Мытьё духовки / СВЧ внутри
+              %p Глажка
+            %div
+              %p К оплате
+              %p.total
+                %span> 4000
+                3500 руб.
+              %input{:name => "total", :type => "hidden", :value => "0"}/
+              %input{:name => "freeWindow", :type => "hidden", :value => "false"}/
+              %input{:name => "standartDiscount", :type => "hidden", :value => "false"}/
+              %input{:name => "generalDiscount", :type => "hidden", :value => "false"}/
+              %input{:name => "remontDiscount", :type => "hidden", :value => "false"}/
+              %input{:name => "comment", :type => "hidden", :value => ""}/
+              %input{:name => "totalCost", :type => "hidden", :value => "0"}/
+              %input{:name => "discount", :type => "hidden", :value => "0"}/
+          .row
+            = text_field_tag 'order[name]', nil, placeholder: 'Ваше имя', class: "contactinput"
+          .row
+            = text_field_tag 'order[email]', nil, placeholder: 'Электронная почта', class: "contactinput"
+          .row
+            = text_field_tag 'order[phone]', nil, placeholder: 'Контактный телефон', class: "contactinput"
+          = submit_tag 'ЗАКАЗАТЬ УБОРКУ', { class: 'submit' }
+          %ul.miniFaq
+            %li
+              %h4
+                %a{:href => "#what"} Что же входит в уборку? Смотрите ниже...
+            %li.accordion
+              %h4 Расценки на уборку
+              #content__calculate__calculate__1__p1.adminTextEl
+                %p
+                  %strong> Расценки на уборку кварир
+                  \&nbsp;строго соответствуют заявленным в калькуляторе. Никаких доплат на месте!
+                  %br/
+                %p
+                  Вы можете самостоятельно&nbsp;
+                  %strong> рассчитать стоимость уборки
+                  , выбрав лишь необходимые услуги и сделать заказ указав свой номер телефона и имя. &nbsp;
+                %p В случае, если у Вам необходима нестандартная уборка или же у Вас остались вопросы, просим связаться с нами для уточнений и корректировок в обход калькулятора.
+                %p Стандартная классификация квартир:&nbsp;
+                %blockquote
+                  %p{"data-mce-style" => "text-align: left;", :style => "text-align: left;"}
+                    %span{"data-mce-style" => "text-decoration: underline;", :style => "text-decoration: underline;"}
+                      %strong 1 комн. от 0 - 50 м2
+                  %p{"data-mce-style" => "text-align: left;", :style => "text-align: left;"}
+                    %span{"data-mce-style" => "text-decoration: underline;", :style => "text-decoration: underline;"}
+                      %strong 2 комн. от 0 - 70 м2
+                  %p{"data-mce-style" => "text-align: left;", :style => "text-align: left;"}
+                    %span{"data-mce-style" => "text-decoration: underline;", :style => "text-decoration: underline;"}
+                      %strong 3 комн. от 0 - 100 м2
+                  %p{"data-mce-style" => "text-align: left;", :style => "text-align: left;"}
+                    %span{"data-mce-style" => "text-decoration: underline;", :style => "text-decoration: underline;"}
+                      %strong 4 комн. от 0 - 150 м2
+            %li.accordion
+              %h4 Сколько времени необходимо на уборку?
+              #content__calculate__calculate__1__p4.adminTextEl
+                %p{"data-mce-style" => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;", :style => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;"} Указано приблизительное время уборки квартир, которое зависит от степени загрязненности и конкретных пожеланий:
+                %p{"data-mce-style" => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;", :style => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;"}
+                  \&nbsp;
+                  %br/
+                %p{"data-mce-style" => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;", :style => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;"} 1 комнатная ~ 1.5 - 3 часа
+                %p{"data-mce-style" => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;", :style => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;"} 2 комнатная ~ 2 - 5 часов
+                %p{"data-mce-style" => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;", :style => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;"} 3 комнатная ~ 5 - 8 часов
+                %p{"data-mce-style" => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;", :style => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;"} 4 комнатная ~ 6 - 10 часов
+                %p{"data-mce-style" => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;", :style => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;"}
+                  \&nbsp;
+                  %br/
+                %p{"data-mce-style" => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;", :style => "text-indent: 0px; margin-bottom: 0px; margin-top: 0px;"}Просим Вас заранее планировать свое время.
+            %li.accordion
+              %h4 Кто приедет убирать?
+              #content__calculate__calculate__1__p5.adminTextEl
+                %p
+                  %ul
+                    %li - Славяне
+                    %li - Профессионалы своего дела
+                    %li - Только прошедшие профессиональный отбор
+                  %br/
+                %p
+                %p Сотрудники постоянно проходят внутреннюю курсы повышения квалификации на базах наших партнеров, производителей чистящих средств мирового класса. Весь необходимый инвентарь наши клинеры всегда приносят с собой.
+= render 'info_space'
+.bottom
+%a{:name => "what"}

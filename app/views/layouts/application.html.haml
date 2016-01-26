@@ -1,0 +1,17 @@
+!!!
+%html.html{ lang: 'ru' }
+  %head
+    %title= (@page_title || "Какая-то херня")
+    = favicon_link_tag 'favicon.ico'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true
+    = javascript_include_tag 'application', 'data-turbolinks-track': true
+    = csrf_meta_tag
+    /= render 'shim'
+  %body
+    =render 'header'
+    #main
+      /.container
+      =content_tag :div, notice, class: "flash bg-success" if notice
+      =content_tag :div, alert, class: "flash bg-danger" if alert
+      = yield
+    =render 'footer'  

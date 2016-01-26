@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 
+  order_id: 
+  additional: false
+  quantity: 1
+  price: 1
+  description: MyText
+  deleted_at: 2016-01-19 13:45:45
+
+two:
+  product_id: 
+  order_id: 
+  additional: false
+  quantity: 1
+  price: 1
+  description: MyText
+  deleted_at: 2016-01-19 13:45:45

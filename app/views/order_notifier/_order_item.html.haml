@@ -1,0 +1,6 @@
+%tr
+  %td= Product.find(order_item.product_id).name
+  %td= order_item.quantity
+  %td= order_item.price
+  %td= order_item.quantity*order_item.price
+  / %td= order_item.summ

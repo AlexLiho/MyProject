@@ -1,0 +1,14 @@
+.row.withHint
+  = label_tag :additional do
+    = additional.name
+    =link_to nil, class: 'info' do
+      %div
+        %span
+        = additional.description
+    %span
+      = additional.price 
+      = additional.unit 
+  .spinner
+    %a{:href => "#", class: "less"}
+    = text_field_tag "order_item[#{additional.id}][quantity]", 0, in: 0...10
+    %a{:href => "#", class: "more"}

@@ -1,0 +1,23 @@
+%h1 Здравствуйте, #{@order.name}!!!
+
+Вы сделали заказ на нашем сайте. В ближайшее время наш специалист свяжется с Вами. Мы рады Вам помочь.
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Additional
+      %th Price
+      %th Unit
+      %th Lead time
+      %th Summ
+      %th Deleted at
+      %th
+      %th
+      %th
+  = render partial: 'order_item', collection: @order_items
+
+
+
+С уважением,
+Команда Bjic.ru

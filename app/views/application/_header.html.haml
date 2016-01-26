@@ -1,0 +1,14 @@
+.headSpace
+  %ul
+    %li.logo=link_to (image_tag 'logo.svg', alt: 'Перейти на главную страницу сайта'), root_path  #, class: 'navbar-brand hidden-xs'
+    %li.order=link_to 'Заказать уборку', calculate_path, method: :get
+    %li.personal
+      %b Все услуги оказывают славяне.
+      %br
+      %b Все работы застрахованы.
+    %li.phone
+      %span 
+        %b +7 (800) 500-71-42
+      %hr
+      %span 
+        %b +7 (499) 322-39-34

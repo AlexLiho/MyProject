@@ -1,0 +1,22 @@
+# defaults: &defaults
+#   email: dev@example.com
+#   secret: foo123
+
+# development:
+#   <<: *defaults
+
+# test:
+#   <<: *defaults
+#   email: test@example.com
+
+# production:
+#   <<: *defaults
+#   email: info@example.com
+#   secret: 321oof
+
+
+
+# address: dub406-m.hotmail.com #mail.yourdomain.com
+# domain: hotmail.com #yourdomain.com
+# user_name: 's.pashkov@outlook.com' #"noreply@yourdomain.com"
+# password: 'Ghjcn0Gfhjkm' #"your_password"

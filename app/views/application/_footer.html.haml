@@ -1,0 +1,29 @@
+.bottomSpace
+  %ul
+    %li
+      %strong Уборка квартир
+      =link_to 'Уборка квартир в Москве', calculate_path
+    %li
+      %strong О компании
+      =link_to 'О компании', about_path
+    %li
+      %strong Адрес и время работы:
+      %p
+        Работаем с 8:00 до 24:00
+        %br/
+        ежедневно и без выходных.
+      %p.address
+        Москва,
+        %br>/
+        Ул. Миклухо-Маклая 36, к1
+    %li
+      %strong Телефон:
+      %p.phone
+        %b +7 (800) 500-71-42
+      %p.phone
+        %b +7 (499) 322-39-34
+    .copyright
+      @CMS-all, Все права защищены. По техническим вопросам просьба писать администратору сайта admin@bjic.ru
+    .arrowUpSpace
+      %a.arrowUp{:href => "#"}
+      #forAjaxSpace
